@@ -17,3 +17,16 @@ export const removeProduct = (productName,price)=>{
 
     }
 }
+
+export const changeRedirect = ()=>{
+    return {
+        type : 'CHANGE_REDIRECT'
+    }
+}
+
+export const updateDbCart =(dbCart)=>{
+    return {
+        type : 'UPDATE_DBCART',
+        cart : dbCart
+    }
+} 

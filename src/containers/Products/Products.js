@@ -29,6 +29,7 @@ class Products extends Component {
 
     componentDidMount() {
         console.log("cdm")
+        this.props.onChangeRedirect()
         this.setState({ path: this.props.location.pathname })
         this.loadData()
     }
@@ -76,7 +77,9 @@ return {
 const mapDispatchToProps = dispatch=>{
     return {
         onAddProduct : (productName,price)=>dispatch(cartActions.addProduct(productName,price)),
-        onRemoveProduct : (productName,price)=>dispatch(cartActions.removeProduct(productName,price))
+        onRemoveProduct : (productName,price)=>dispatch(cartActions.removeProduct(productName,price)),
+        onChangeRedirect : ()=>dispatch(cartActions.changeRedirect())
+
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Products)

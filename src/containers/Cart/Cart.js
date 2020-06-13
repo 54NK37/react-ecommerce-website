@@ -18,8 +18,8 @@ class Cart extends Component {
 
     }
 
-    updateCart = ()=>{
-        const cartt=[]
+    updateCart = () => {
+        const cartt = []
         const keys = Object.keys(this.props.sharedCart)
         keys.forEach((key, index) => {
             if (!key.endsWith('Price')) {
@@ -32,7 +32,7 @@ class Cart extends Component {
             }
         })
 
-        this.setState({cart : cartt})
+        this.setState({ cart: cartt })
 
     }
 
@@ -46,6 +46,7 @@ class Cart extends Component {
         }).then(res => {
             console.log(res.data)
             this.setState({ cart: res.data })
+            this.props.onUpdateDbCart(this.state.cart)
         })
             .catch(err => {
                 console.log(err)
@@ -55,34 +56,39 @@ class Cart extends Component {
     componentDidMount() {
         console.log("cdm")
 
-        if (Object.keys(this.props.sharedCart).length === 0 && this.props.purchasing === false && localStorage.getItem('token')!==null) {
+        if (Object.keys(this.props.sharedCart).length === 0 && this.props.purchasing === false && localStorage.getItem('token') !== null) {
             this.fetchPreviosCart()
+            this.props.onUpdateDbCart(this.state.cart)
         }
 
 
-        if (this.props.purchasing)
-            {
-                this.setState({ sharedCart: this.props.sharedCart })
-                this.updateCart()
-            }
+        if (this.props.purchasing) {
+            this.setState({ sharedCart: this.props.sharedCart })
+            this.updateCart()
+        }
     }
 
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.sharedCart !== this.props.sharedCart) {
+        if (prevProps.sharedCart !== this.props.sharedCart && prevProps.purchasing !==this.props.purchasing ) {
             console.log("cdu")
             this.setState({ sharedCart: this.props.sharedCart })
             this.updateCart()
-                if(!this.props.purchasing  && localStorage.getItem('token')!==null){
-            this.fetchPreviosCart()
-                }
+            if (!this.props.purchasing && localStorage.getItem('token') !== null) {
+
+                this.fetchPreviosCart()
+                this.props.onUpdateDbCart(this.state.cart)
+
+            }
             console.log(this.state.cart)
         }
 
     }
 
 
-
+    checkoutHandler = () => {
+        this.props.history.push(this.props.redirect)
+    }
 
     render() {
 
@@ -135,7 +141,7 @@ class Cart extends Component {
 
                 {cartItem}
                 <p>Total Price : {totalPrice}</p>
-                {(this.props.status === undefined) ? <button>Placeorder</button> : null}
+                <button onClick={() => this.checkoutHandler()}>Checkout</button>
             </div >
 
 
@@ -147,14 +153,16 @@ class Cart extends Component {
 const mapStateToProps = state => {
     return {
         sharedCart: state.cart,
-        purchasing: state.purchasing
+        purchasing: state.purchasing,
+        redirect: state.redirect
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onAddProduct: (productName, price) => dispatch(cartActions.addProduct(productName, price)),
-        onRemoveProduct: (productName, price) => dispatch(cartActions.removeProduct(productName, price))
+        onRemoveProduct: (productName, price) => dispatch(cartActions.removeProduct(productName, price)),
+        onUpdateDbCart: (dbCart) => dispatch(cartActions.updateDbCart(dbCart))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

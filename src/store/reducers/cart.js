@@ -1,6 +1,9 @@
 const initialState = {
     cart: {},
-    purchasing: false
+    purchasing: false,
+    redirect: localStorage.getItem('token') !== null ? '/checkout' : '/login',
+    dbCart : []
+
 }
 
 const reducer = (state = initialState, action) => {
@@ -14,7 +17,7 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     cart: { ...cart },
-                    purchasing : Object.keys(state.cart).length === 0 ? false : true
+                    purchasing: Object.keys(state.cart).length === 0 ? false : true
                 }
             }
             else {
@@ -22,7 +25,7 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     cart: { ...cart },
-                    purchasing : Object.keys(state.cart).length === 0 ? false : true
+                    purchasing: Object.keys(state.cart).length === 0 ? false : true
 
                 }
             }
@@ -34,7 +37,7 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     cart: { ...cart },
-                    purchasing : Object.keys(state.cart).length === 0 ? false : true
+                    purchasing: Object.keys(state.cart).length === 0 ? false : true
                 }
             }
             else {
@@ -46,12 +49,30 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     cart: { ...cart },
-                    purchasing : Object.keys(state.cart).length === 0 ? false : true
+                    purchasing: Object.keys(state.cart).length === 0 ? false : true
 
 
                 }
             }
 
+        case ('CHANGE_REDIRECT'):
+            return {
+                ...state,
+                cart: { ...cart },
+                purchasing: Object.keys(state.cart).length === 0 ? false : true,
+                redirect: localStorage.getItem('token') !== null ? '/checkout' : '/login'
+
+            }
+
+        case('UPDATE_DBCART'):
+        return {
+            ...state,
+                cart: { ...cart },
+                purchasing: Object.keys(state.cart).length === 0 ? false : true,
+                redirect: localStorage.getItem('token') !== null ? '/checkout' : '/login',
+                dbCart : action.cart
+
+        }
 
         default: return state
 

@@ -9,6 +9,7 @@ import Orders from './containers/Orders/Orders';
 import Products from './containers/Products/Products';
 import Profile from './containers/Profile/Profile';
 import Logout from './containers/Logout/Logout'
+import Checkout from './containers/Checkout/Checkout';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Route path='/cart' component={Cart} />
           <Route path='/profile' component={Profile} />
           <Route path='/logout'  component={Logout} />
+          <Route path='/checkout'  component={Checkout} />
+
         </Switch>
 
       </div>

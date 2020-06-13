@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from '../../axios'
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux'
+import * as cartActions from '../../store/actions/cart'
 
 class Login extends Component {
     
@@ -21,11 +23,13 @@ class Login extends Component {
                 console.log(res.data)
                 localStorage.setItem('token', res.data.token)
                 this.setState({})
-
             })
             .catch(err => {
                 console.log(err)
             })
+
+            this.props.onChangeRedirect()
+
     }
 
   
@@ -54,4 +58,17 @@ class Login extends Component {
     }
 
 }
-export default Login
+
+const mapStateToProps = state =>{
+    return {
+
+        redirect : state.redirect
+    }
+}
+
+const mapDispatchToProps = dispatch =>{
+    return {
+        onChangeRedirect : ()=>dispatch(cartActions.changeRedirect())
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Login)
