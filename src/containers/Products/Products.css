@@ -1,0 +1,23 @@
+.Products{
+    width: calc(100% - 204px);
+    border: 2px solid #eee;
+    box-shadow : 0 2px 3px #ccc;
+    text-align: center;
+    display: inline-block;
+    height: auto;
+
+}
+
+.Main{
+margin-top: 5px;
+}
+
+.Sidebar{
+    text-align: left;
+    width: 150px;
+    display: inline-block;
+    height: max-content;
+    margin-bottom: 0px 0px;
+    vertical-align: top;
+
+}

@@ -1,0 +1,131 @@
+[{
+        "name": {
+            "firstName": "Sanket",
+            "middleName": "Vasant",
+            "lastName": "Farande"
+        },
+
+        "userName": "sanketvf",
+        "password": "sanket123",
+        "email": "sanket@gmail.com",
+        "cart": [{
+                "product": "Bread",
+                "quantity": 2,
+                "currentprice": 30
+            },
+            {
+                "product": "Apples",
+                "quantity": 3,
+                "currentprice": 80
+            }
+        ],
+        "address": {
+            "houseNo": "A-290",
+            "city": "Pimpri",
+            "pin": 411018
+        },
+        "orders": [{
+                "cart": [{
+                        "product": "Onion",
+                        "quantity": 2,
+                        "price": 30
+                    },
+                    {
+                        "product": "Masala",
+                        "quantity": 1,
+                        "price": 60
+                    }
+                ],
+                "totalPrice": 120,
+                "orderDate": "20-03-2018",
+                "status": "Delivered",
+                "deliveryDate": "23=03-2018"
+            },
+            {
+                "cart": [{
+                        "product": "Apple",
+                        "quantity": 2,
+                        "price": 80
+                    },
+                    {
+                        "product": "Cucumber",
+                        "quantity": 3,
+                        "price": 20
+                    }
+                ],
+                "totalPrice": 220,
+                "orderDate": "15-07-2019",
+                "status": "Dispatched"
+
+            }
+        ]
+
+    },
+
+    {
+        "name": {
+            "firstName": "Vishal",
+            "middleName": "R"
+        },
+
+        "userName": "vishalr",
+        "password": "vishal123",
+        "email": "vishal@gmail.com",
+        "cart": [{
+                "product": "Cashewnut",
+                "quantity": 2,
+                "currentprice": 300
+            },
+            {
+                "product": "Oranges",
+                "quantity": 2,
+                "currentprice": 70
+            }
+        ],
+        "address": {
+            "houseNo": "A-291",
+            "city": "Pimpri",
+            "pin": 411018
+        }
+    },
+
+    {
+        "name": {
+            "firstName": "Satyam",
+            "middleName": "R",
+            "lastName": "Falke"
+        },
+
+        "userName": "satyamrf",
+        "password": "satyam123",
+        "email": "satyam@gmail.com",
+        "address": {
+            "houseNo": "B-90",
+            "city": "Pimpri",
+            "pin": 411018
+        },
+        "orders": [{
+            "cart": [{
+                    "product": "Clove",
+                    "quantity": 3,
+                    "price": 20
+                },
+                {
+                    "product": "Ginger",
+                    "quantity": 5,
+                    "price": 10
+                }
+            ],
+            "totalPrice": 110,
+            "orderDate": "10-04-2019",
+            "deliveryAddress": {
+                "houseNo": "A-290",
+                "city": "Pimpri",
+                "pin": 411018
+            },
+            "status": "Dispatched"
+        }]
+
+    }
+
+]

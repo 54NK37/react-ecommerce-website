@@ -1,0 +1,11 @@
+.Cart{
+    width: auto;
+    margin:  16px auto;
+    border: 2px solid #eee;
+    box-shadow : 0 2px 3px #ccc;
+    padding: 0px 100px;
+    text-align: center;
+}
+.Cart h4{
+    margin: 20px;
+}

@@ -1,0 +1,57 @@
+.Header{
+    width: 100%;
+    background: cadetblue;
+    padding: 4px 1px;
+}
+
+.Title{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.Nav{
+    display: inline-block;
+    text-align: right;
+    width: calc(100% - 235px);
+    vertical-align: middle;
+}
+.Ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.Li{
+    display: inline-block;
+    padding: 0px 5px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.Header h3{
+    margin: 0;
+    color:firebrick;
+}
+
+.Nav  {
+    display: inline-block;
+}
+
+.Header a{
+    text-decoration: none;
+    padding: 5px;
+}
+.Header a:hover {
+    background-color: darksalmon;
+    color: crimson;
+    border-radius: 8px;
+    
+}
+
+ a.active{
+    background: darksalmon;
+    color: crimson;
+    border-bottom: 2px solid red;
+    border-radius: 8px;
+}
