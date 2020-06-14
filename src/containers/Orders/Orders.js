@@ -25,7 +25,7 @@ class Orders extends Component {
                 }
             }).then(res => {
                 console.log(res.data)
-                this.setState({orders : res.data})
+                this.setState({orders : res.data.reverse()})
             })
                 .catch(err => {
                     console.log(err)
@@ -47,6 +47,7 @@ class Orders extends Component {
                                 orderDate = {element.orderDate}
                                 status = {element.status}
                                 deliveryDate = {element.deliveryDate}
+                                deliveryAddress = {element.deliveryAddress}
                                 orderCount = {index}
                                 key={element._id}/>
         })

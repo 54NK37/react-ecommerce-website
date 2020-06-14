@@ -30,3 +30,9 @@ export const updateDbCart =(dbCart)=>{
         cart : dbCart
     }
 } 
+
+export const resetCart = ()=>{
+    return { 
+        type : 'RESET_CART'
+    }
+}

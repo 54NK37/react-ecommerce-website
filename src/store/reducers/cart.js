@@ -74,6 +74,14 @@ const reducer = (state = initialState, action) => {
 
         }
 
+        case('RESET_CART'):
+        return {
+            cart : {},
+            purchasing : false,
+            redirect: localStorage.getItem('token') !== null ? '/checkout' : '/login',
+            dbCart : []
+        }
+
         default: return state
 
     }

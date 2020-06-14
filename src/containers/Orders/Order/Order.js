@@ -21,8 +21,8 @@ const order = (props) => {
             <p>Total Price : {props.totalPrice}</p>
             <p>Order Date : {props.orderDate}</p>
             <p>Status : {props.status}</p>
-            {(props.status === "Delivered") ? <p>Delivery Date : {props.deliveryDate}</p> : null
-            }
+            {(props.status === "Delivered") ? <p>Delivery Date : {props.deliveryDate}</p> : null}
+    {props.deliveryAddress ? <p>Delivery Address : {props.deliveryAddress.houseNo + " "+ props.deliveryAddress.city + " " + props.deliveryAddress.pin}</p>:null}
 
         </div>
     );
