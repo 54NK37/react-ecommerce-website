@@ -1,11 +1,32 @@
 .Cart{
     width: auto;
-    margin:  16px auto;
+    margin: 0 auto;
     border: 2px solid #eee;
     box-shadow : 0 2px 3px #ccc;
-    padding: 0px 100px;
+    padding: 50px;
     text-align: center;
 }
 .Cart h4{
     margin: 20px;
+}
+
+.Cart li{
+    list-style: none;
+}
+
+.Cart .Heading li
+{
+display: inline-block;
+padding: 0px 70px;
+margin-top: 20px;
+
+}
+
+.Cart .Submit{
+    color: white;
+    font-size: large;
+    background-color: seagreen;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
 }

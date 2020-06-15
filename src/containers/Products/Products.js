@@ -45,6 +45,7 @@ class Products extends Component {
     render() {
         let product = this.state.products.map((element, index) => {
             return <Product name={element.name}
+                category = {element.category}
                 price={element.price}
                 key={element._id}
                 availableStatus={element.availableStatus}

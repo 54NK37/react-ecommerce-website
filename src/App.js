@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Layout from './components/Layout/Layout';
 import Login from './containers/Login/Login';
 import Signup from './containers/Signup/Signup';
@@ -26,7 +26,7 @@ function App() {
           <Route path='/profile' component={Profile} />
           <Route path='/logout'  component={Logout} />
           <Route path='/checkout'  component={Checkout} />
-
+          <Redirect to='/products'/>
         </Switch>
 
       </div>

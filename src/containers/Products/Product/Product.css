@@ -1,14 +1,47 @@
 .Product{
-    margin:  20px;
+    margin:  15px;
+    padding: 10px;
     border: 2px solid #eee;
     box-shadow : 0 2px 3px #ccc;
     text-align: center;
-    width: 150px;
-    height: 250px;
+    width: 300px;
+    height: 340px;
     display:  inline-block;
     vertical-align: middle;
 
 }
 .Product p{
-    margin: 20px;
+    margin: 5px;
+}
+
+.Product img{
+width: 290px;
+height: 180px;
+}
+
+.Product .Available{
+    background-color: green;
+    color: white;
+    font-weight: lighter;
+    border: 2px solid greenyellow;
+}
+
+.Product .Unvailable{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+.Product .Button
+{
+    height: 25px;
+    width: 25px;
+    background-color: lightgray;
+    border: none;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.Product .AddToCart{
+    display: inline-block;
 }

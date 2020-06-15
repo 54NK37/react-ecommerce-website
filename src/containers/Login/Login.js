@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from '../../axios'
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
+import classes from './Login.css'
 import * as cartActions from '../../store/actions/cart'
 
 class Login extends Component {
@@ -32,23 +33,21 @@ class Login extends Component {
 
     }
 
-  
-
     render() {
         console.log("ren")
         return (
-            <div>
-                <h4>Login</h4>
+            <div className={classes.Login}>
+                <h2>Login</h2>
                 {localStorage.getItem('token') !== null ? <Redirect to="/products" /> : null}
                 <form id='form'>
                     <div>
                         <label>Username</label>
-                        <input id='un' type={"text"} />
+                        <input id='un' type={"text"} placeholder='Username'/>
                     </div>
 
                     <div>
                         <label>Password</label>
-                        <input id='password' type={"password"} />
+                        <input id='password' placeholder='Password' type={"password"} />
                     </div>
                     <button type={'submit'} onClick={(event) => this.onSubmitHandler(event)}>Submit</button>
 

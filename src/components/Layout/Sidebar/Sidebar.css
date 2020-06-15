@@ -1,0 +1,39 @@
+.Sidebar {
+    position: fixed;
+    margin-top: 43px ;
+    height: 100%;
+    width: auto;
+    padding: 15px;
+    background-color: azure;
+    
+}
+
+.Sidebar h3{
+    text-align: center;
+}
+.Sidebar a{
+    text-decoration: none;
+    font-size: medium;
+    font-weight: bold;
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    width: 100px;
+}
+.Sidebar li{
+    list-style-type: none;
+}
+.Sidebar Nav{
+text-align: right;
+}
+
+.Sidebar a:hover,Sidebar a.active{
+    background-color : aquamarine;
+    border-radius: 5px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+

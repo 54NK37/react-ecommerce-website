@@ -1,0 +1,74 @@
+.Signup {
+    box-sizing: border-box;
+    padding: 80px 0px;
+    margin: auto;
+    border: 1px solid grey;
+    width: 600px;
+    height: auto;
+    background-color: lightgray;
+    box-shadow : 0 2px 3px #ccc;
+    text-align: center;
+    display: block;
+
+}
+
+.Signup h2{
+    margin: 20px;
+}
+
+.Signup form{
+    height: 300px;
+    text-align: center;
+}
+.Signup input{
+    margin: 8px;
+    width: 363px;
+    height: 25px;
+    border-radius: 8px;
+    border: 2px solid grey;
+    vertical-align: middle;
+    float: right;
+    margin-left: 50px;
+
+}
+
+.Signup label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: right;
+    float: left;
+    margin-left: 100px;
+    margin-top: 18px;
+}
+
+.Signup div{
+    display: block;
+}
+
+.Signup button{
+    color: white;
+    font-size: large;
+    background-color: seagreen;
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+    margin: 50px;
+    vertical-align: bottom;
+}
+
+.Signup .Name input{
+    width: 115px;
+    display: inline;
+    margin: 5px;
+
+}
+
+.Signup .Address input{
+    width: 115px;
+    display: inline;
+    margin: 5px;
+
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+ }

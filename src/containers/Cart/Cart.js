@@ -128,20 +128,12 @@ class Cart extends Component {
             <div className={classes.Cart}>
 
                 <div >
-
-                    {(this.props.purchasing) ? <h3>My Current Cart</h3> : <h3>My Previous Cart</h3>}
-                    <div >
-                        <h4>Products</h4>
-                        <h4>Quantities</h4>
-                        <h4>Price</h4>
-                        <h4>Total Price</h4>
-                    </div>
-
+                    {(this.props.purchasing) ? <h3>My Current Cart</h3> : <h3>My Previous Unordered Cart</h3>}
                 </div>
 
                 {cartItem}
                 <p>Total Price : {totalPrice}</p>
-                <button onClick={() => this.checkoutHandler()}>Checkout</button>
+                <button className={classes.Submit} onClick={() => this.checkoutHandler()}>Checkout</button>
             </div >
 
 

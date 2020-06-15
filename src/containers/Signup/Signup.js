@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from '../../axios'
 import { Redirect } from 'react-router-dom';
-
+import classes from './Signup.css'
  
 
 class Signup extends Component {
@@ -49,33 +49,30 @@ class Signup extends Component {
     
     render() {
         return (
-            <div>
-                <h4>Signup</h4>
+            <div className={classes.Signup}>
+                <h2>Signup</h2>
                 {localStorage.getItem('token') !== null ? <Redirect to="/products" /> : null}
             <form id='form'>
-                <div>
-                    <label >Name</label>
+                <div className={classes.Name}>
+                    <label >Name             </label>
                     <input id='fn' placeholder={"FirstName"} required />
                     <input id='mn' placeholder={"MiddleName"} required />
                     <input id='ln' placeholder={"LastName"} />
                 </div>
 
                 <div>
-                    <label>Email</label>
-                    <input id='email' type={"email"} />
+                    <label>Email </label><input id='email' placeholder={"Email id"} type={"email"} />
                 </div>
 
                 <div>
-                    <label>Username</label>
-                    <input id='un' type={"text"} />
+                    <label>Username</label><input id='un' placeholder={"Username"} type={"text"} />
                 </div>
 
                 <div>
-                    <label>Password</label>
-                    <input id='password' type={"password"} />
+                    <label>Password</label><input id='password' placeholder={"Password"} type={"password"} />
                 </div>
 
-                <div>
+                <div  className={classes.Address}>
                     <label >Address</label>
                     <input id="hno" placeholder={"House No"} />
                     <input id="city" placeholder={"City"} required />
