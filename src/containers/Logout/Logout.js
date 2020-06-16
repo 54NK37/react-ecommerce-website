@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import axios from '../../axios'
 import { connect } from 'react-redux'
 import * as cartActions from '../../store/actions/cart'
-
-// import classes from 'react-confirm-alert/src/react-confirm-alert.css'
+import classes from './Logout.css'
 
 
 class Logout extends Component {
@@ -80,12 +79,12 @@ class Logout extends Component {
     }
     render() {
         return (
-            <div>
+            <div className={classes.Logout}>
                 <h3>Logging you out from this device</h3>
                 <p>Do you also want to logout from all devices ?</p>
-                <button onClick={this.yesHandler}>Yes</button>
-                <button onClick={this.noHandler}>No</button>
-                <button onClick={this.cancelHandler}>Cancel Logout</button>
+                <button style={{'backgroundColor' : 'darkgreen'}} onClick={this.yesHandler}>Yes</button>
+                <button style={{'backgroundColor' : 'red'}} onClick={this.noHandler}>No</button>
+                <button style={{'backgroundColor' : 'darkorange'}} onClick={this.cancelHandler}>Cancel Logout</button>
             </div>
         )
     }

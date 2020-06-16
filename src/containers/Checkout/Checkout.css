@@ -1,0 +1,74 @@
+.Checkout{
+    width: 600px;
+    border: 2px solid #eee;
+    box-shadow : 0 2px 3px #ccc;
+    text-align: center;
+    display: block;
+    height: auto;
+margin: auto;
+
+}
+.Checkout table{
+    margin: auto;
+    padding: 5px;
+    border: 2px solid grey;
+}
+
+.Checkout th{
+    padding: 10px;
+}
+
+.Checkout td{
+    padding: 2px;
+}
+.Checkout h3{
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+.Checkout Img{
+    float: left;
+        width: 200px;
+        height: 140px;
+        margin: 30px;
+        margin-top: 4px;
+        
+}
+
+.Checkout label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+    /* float: left; */
+    margin-right: 20px;
+    padding-top: 15px;
+    margin-top: 20px;
+    vertical-align: middle;
+}
+
+.Checkout .Address input{
+    width: 80px;
+    display: inline;
+    margin: 5px;
+    margin-top: 20px;
+    height: 25px;
+    border-radius: 8px;
+    border: 2px solid grey;
+    vertical-align: middle;
+
+}
+
+.Checkout button{
+    color: white;
+    font-size: large;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100px;
+    margin: 10px;
+    vertical-align: bottom;
+}
+
+.Checkout .Total{
+    color: royalblue;
+    font-weight: bolder;
+    margin: 10px;
+    
+    }

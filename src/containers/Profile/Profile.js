@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from '../../axios'
+import classes from './Profile.css'
 
 class Profile extends Component {
     constructor(props) {
@@ -9,47 +10,49 @@ class Profile extends Component {
         }
     }
     componentDidMount() {
-    let token = localStorage.getItem('token')
-    axios.get('/users/me', {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    })
-        .then(res => {
-            this.setState({form : res.data})
-            console.log(this.state.form)
+        let token = localStorage.getItem('token')
+        axios.get('/users/me', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
         })
-        .catch(err => {
-            console.log(err)
-        })
+            .then(res => {
+                this.setState({ form: res.data })
+                console.log(this.state.form)
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
-    
+
     render() {
         return (
-            <div>
-                <h4>My Profile</h4>
-            <div>
-                <p><strong>Name : </strong>{this.state.form !== null ? (this.state.form.name.firstName +" "+ this.state.form.name.middleName +" "+ this.state.form.name.lastName) : null}</p>
-            </div>
+            <div className={classes.Profile}>
+                    <h4 style={{'color' : 'Blue'}}>My Profile</h4>
+                    <hr/>
+                    <div>
+                        <label><strong>Name : </strong></label>  <p>{this.state.form !== null ? (this.state.form.name.firstName + " " + this.state.form.name.middleName + " " + this.state.form.name.lastName) : null}</p>
+                    </div>
 
-            <div>
-                <p><strong>Email : </strong>{this.state.form !== null ? (this.state.form.email) : null}</p>
+                    <div>
+                        <label><strong>Email : </strong></label> <p> {this.state.form !== null ? (this.state.form.email) : null}</p>
 
-            </div>
+                    </div>
 
-            <div>
-                <p><strong>Username : </strong>{this.state.form !== null ? (this.state.form.userName) : null}</p>
+                    <div>
+                        <label><strong>Username : </strong></label><p>  {this.state.form !== null ? (this.state.form.userName) : null}</p>
 
-            </div>
+                    </div>
 
-            <div>
-                <p><strong>Address : </strong>{this.state.form !== null ? (this.state.form.address.houseNo +" "+ this.state.form.address.city +" "+ this.state.form.address.pin) : null}</p>
-            </div>
+                    <div>
+                        <label><strong>Address : </strong></label><p>  {this.state.form !== null ? (this.state.form.address.houseNo + " " + this.state.form.address.city + " " + this.state.form.address.pin) : null}</p>
+                    </div>
+
             </div>
         )
     }
 
 
-    
+
 }
 export default Profile

@@ -1,0 +1,19 @@
+.Profile{
+    padding-top: 40px;
+    margin: auto;
+    width: 50%;
+    height: 300px;
+    box-shadow: 0 2px 3px #ccc;
+}
+
+.Profile h4{
+    margin: 10px;
+}
+.Profile label{
+    float: inline-start;
+    margin: 10px;
+}
+.Profile p{
+    float: inline-end;
+    margin: 8px;
+}

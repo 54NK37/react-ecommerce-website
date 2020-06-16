@@ -27,7 +27,8 @@
 text-align: right;
 }
 
-.Sidebar a:hover,Sidebar a.active{
+a:hover,
+a:active{
     background-color : aquamarine;
     border-radius: 5px;
 }

@@ -132,7 +132,7 @@ class Cart extends Component {
                 </div>
 
                 {cartItem}
-                <p>Total Price : {totalPrice}</p>
+                <p className={classes.Total}>Total Price : {totalPrice}</p>
                 <button className={classes.Submit} onClick={() => this.checkoutHandler()}>Checkout</button>
             </div >
 

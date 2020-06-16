@@ -54,6 +54,14 @@
     text-decoration: none;
     padding: 5px;
 }
+.Header a:active,
+.Header a.active{
+    background-color: sandybrown;
+    color: blueviolet;
+    border-bottom: 2px solid darkred;
+    border-radius: 8px;
+}
+
 .Header a:hover {
     background-color: sandybrown;
     color: teal;
@@ -68,10 +76,4 @@
     vertical-align: middle;
 
 }
-.Header a.active,
-.Header a:active{
-    background-color: sandybrown;
-    color: teal;
-    border-bottom: 2px solid darkred;
-    border-radius: 8px;
-}
+

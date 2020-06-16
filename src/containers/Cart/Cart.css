@@ -6,8 +6,8 @@
     padding: 50px;
     text-align: center;
 }
-.Cart h4{
-    margin: 20px;
+.Cart h3{
+    margin: 10px;
 }
 
 .Cart li{
@@ -29,4 +29,11 @@ margin-top: 20px;
     padding: 5px;
     border-radius: 5px;
     margin: 5px;
+}
+
+.Cart .Total{
+color: royalblue;
+font-weight: bolder;
+margin: 10px;
+
 }

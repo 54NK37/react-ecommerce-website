@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Order from './Order/Order'
 import axios from '../../axios'
 import {withRouter} from 'react-router-dom'
+import classes from './Orders.css'
 class Orders extends Component {
     constructor(props) {
     super(props)
@@ -62,7 +63,7 @@ class Orders extends Component {
         
 
         return (
-                <div>
+                <div classname={classes.Orders}>
                     <h4>My Orders</h4>
                     {orders}
                 </div>

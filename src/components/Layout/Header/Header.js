@@ -12,7 +12,7 @@ const header = (props) => {
                 </div><nav className={classes.Nav} >
                     <ul className={classes.Ul}>
                         {localStorage.getItem('token') !== null ? <div>
-                            <li className={classes.Li}><NavLink activeClassName='active' to='/products' >Products</NavLink></li>
+                            <li className={classes.Li}><NavLink to='/products' >Products</NavLink></li>
                             <li className={classes.Li}><NavLink to='/cart'>Cart</NavLink></li>
                             <li className={classes.Li}><NavLink to='/orders'>Orders</NavLink></li>
                             <li className={classes.Li}><NavLink to='/profile'>Profile</NavLink></li>
