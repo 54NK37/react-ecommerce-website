@@ -8,7 +8,7 @@
     height: 340px;
     display:  inline-block;
     vertical-align: middle;
-
+    border-radius: 8px;
 }
 .Product p{
     margin: 5px;
@@ -20,14 +20,14 @@ height: 180px;
 }
 
 .Product .Available{
-    background-color: green;
+    background-color: seagreen;
     color: white;
     font-weight: lighter;
     border: 2px solid greenyellow;
 }
 
 .Product .Unvailable{
-    background-color: red;
+    background-color: tomato;
     color: white;
     font-weight: bold;
 }

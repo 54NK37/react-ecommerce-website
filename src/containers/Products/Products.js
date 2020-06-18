@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Product from './Product/Product'
+import Product from '../../components/Product/Product'
 import Sidebar from '../../components/Layout/Sidebar/Sidebar'
 
 import classes from './Products.css'
@@ -51,6 +51,7 @@ class Products extends Component {
                 availableStatus={element.availableStatus}
                 add ={this.props.onAddProduct}
                 remove ={this.props.onRemoveProduct}
+                cart={this.props.cart}
             />
         })
 
@@ -72,6 +73,7 @@ class Products extends Component {
 
 const mapStateToProps = state=>{
 return {
+    cart: state.cart
 }
 }
 

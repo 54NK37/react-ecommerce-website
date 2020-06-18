@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CartItem from './CartItem/CartItem'
+import CartItem from '../../components/CartItem/CartItem'
 import classes from './Cart.css'
 import axios from '../../axios'
 import { connect } from 'react-redux'
@@ -118,6 +118,8 @@ class Cart extends Component {
                     key={element._id}
                     add={this.props.onAddProduct}
                     remove={this.props.onRemoveProduct}
+                    cart={this.props.sharedCart}
+                    purchasing={this.props.purchasing}
                 />
 
 

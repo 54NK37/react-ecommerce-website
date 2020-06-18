@@ -4,30 +4,13 @@ import axios from '../../axios'
 import * as cartActions from '../../store/actions/cart'
 import classes from './Checkout.css'
 class Checkout extends Component {
-    // constructor(props)
-    // {
-    //     super(props)
-    //     this.state = {
-    //         order : null
-    //     }
-    // }
-
-    cancelHandler = () => {
-        this.props.history.goBack()
-    }
-
     cartt = []
     tp = 0
     add = ''
 
-    //   shouldComponentUpdate(nextProps, nextState) {
-    //       if(this.props !== nextProps)
-    //         return true
-    //   }
-    //   componentDidMount() {
-
-    //   }
-
+    cancelHandler = () => {
+        this.props.history.goBack()
+    }
 
     placeOrderHadler = (event) => {
         event.preventDefault()
@@ -136,10 +119,10 @@ class Checkout extends Component {
                         <input id="city" placeholder={"City"} required />
                         <input id="pin" placeholder={"Pin"} required />
                     </div>
-                    <button className={classes.Button} style={{ 'backgroundColor': 'red' }} onClick={this.cancelHandler}>Cancel</button>
-                    <button className={classes.Button} style={{ 'backgroundColor': 'green' }} type='submit' onClick={(event) => this.placeOrderHadler(event)}>Placeorder</button>
+                    <button className={classes.Button} style={{ 'backgroundColor': 'tomato' }} onClick={this.cancelHandler}>Cancel</button>
+                    <button className={classes.Button} style={{ 'backgroundColor': 'seagreen' }} type='submit' onClick={(event) => this.placeOrderHadler(event)}>Placeorder</button>
                 </form>
-                <p  className={classes.Total}>TotalPrice : {totalPrice}</p>
+                <p className={classes.Total}>TotalPrice : {totalPrice}</p>
             </div>
         )
     }

@@ -3,11 +3,11 @@ import classes from './App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Layout from './components/Layout/Layout';
 import Login from './containers/Login/Login';
-import Signup from './containers/Signup/Signup';
+import Signup from './components/Signup/Signup';
 import Cart from './containers/Cart/Cart';
 import Orders from './containers/Orders/Orders';
 import Products from './containers/Products/Products';
-import Profile from './containers/Profile/Profile';
+import Profile from './components/Profile/Profile';
 import Logout from './containers/Logout/Logout'
 import Checkout from './containers/Checkout/Checkout';
 

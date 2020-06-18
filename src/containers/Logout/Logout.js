@@ -82,9 +82,9 @@ class Logout extends Component {
             <div className={classes.Logout}>
                 <h3>Logging you out from this device</h3>
                 <p>Do you also want to logout from all devices ?</p>
-                <button style={{'backgroundColor' : 'darkgreen'}} onClick={this.yesHandler}>Yes</button>
-                <button style={{'backgroundColor' : 'red'}} onClick={this.noHandler}>No</button>
-                <button style={{'backgroundColor' : 'darkorange'}} onClick={this.cancelHandler}>Cancel Logout</button>
+                <button style={{'backgroundColor' : 'seagreen'}} onClick={this.yesHandler}>Yes</button>
+                <button style={{'backgroundColor' : 'tomato'}} onClick={this.noHandler}>No</button>
+                <button style={{'backgroundColor' : 'yellowgreen'}} onClick={this.cancelHandler}>Cancel Logout</button>
             </div>
         )
     }

@@ -27,8 +27,8 @@
     border-radius: 8px;
     border: 2px solid grey;
     vertical-align: middle;
-    float: right;
     margin-left: 50px;
+    float: inline-end;
 
 }
 
@@ -37,7 +37,7 @@
     text-align: right;
     float: left;
     margin-left: 100px;
-    margin-top: 18px;
+    margin-top: 10px;
 }
 
 .Signup div{
@@ -57,14 +57,14 @@
 
 .Signup .Name input{
     width: 115px;
-    display: inline;
+    display: inline-block;
     margin: 5px;
 
 }
 
 .Signup .Address input{
     width: 115px;
-    display: inline;
+    display: inline-block;
     margin: 5px;
 
 }
