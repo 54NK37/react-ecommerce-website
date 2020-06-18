@@ -45,7 +45,7 @@ const Signup = props => {
                 setstate(true)
             })
             .catch(err => {
-                console.log(err)
+                console.log(err.response.data)
             })
         
         }
@@ -64,20 +64,20 @@ const Signup = props => {
                 </div>
 
                 <div>
-                    <label>Email </label><input id='email' placeholder={"Email id"} type={"email"} />
+                    <label>Email </label><input id='email' required placeholder={"Email id"} type={"email"} />
                 </div>
 
                 <div>
-                    <label>Username</label><input id='un' placeholder={"Username"} type={"text"} />
+                    <label>Username</label><input id='un' required placeholder={"Username"} type={"text"} />
                 </div>
 
                 <div>
-                    <label>Password</label><input id='password' placeholder={"Password"} type={"password"} />
+                    <label>Password</label><input id='password' required placeholder={"Password"} type={"password"} />
                 </div>
 
                 <div className={classes.Address}>
                     <label >Address</label>
-                    <input id="hno" placeholder={"House No"} />
+                    <input id="hno" placeholder={"House No"} required/>
                     <input id="city" placeholder={"City"} required />
                     <input id="pin" placeholder={"Pin"} required />
                 </div>

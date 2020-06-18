@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import axios from '../../axios'
 import * as cartActions from '../../store/actions/cart'
 import classes from './Checkout.css'
+import authenticate from '../../HOC/Auth'
 class Checkout extends Component {
     cartt = []
     tp = 0
@@ -103,14 +104,20 @@ class Checkout extends Component {
             <div className={classes.Checkout}>
                 <h3>Summary</h3>
                 <table>
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
+                    <thead>
 
-                    {cart}
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {cart}
+                    </tbody>
                 </table>
                 <form>
                     <div className={classes.Address}>
@@ -140,4 +147,4 @@ const mapDispatchToProps = dispatch => {
         onResetCart: () => dispatch(cartActions.resetCart())
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
+export default authenticate(connect(mapStateToProps, mapDispatchToProps)(Checkout))

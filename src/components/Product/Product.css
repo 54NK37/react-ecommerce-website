@@ -23,7 +23,8 @@ height: 180px;
     background-color: seagreen;
     color: white;
     font-weight: lighter;
-    border: 2px solid greenyellow;
+    font-weight: bold;
+
 }
 
 .Product .Unvailable{
@@ -42,6 +43,21 @@ height: 180px;
     font-size: large;
 }
 
+.Product img{
+    border: 2px solid lightgrey;
+}
+.Product .AddButton{
+    padding: 6px;
+    border-radius: 5px;
+    margin-top: 8px;
+    font-weight: bold;
+    background-color: lightpink;
+}
+
 .Product .AddToCart{
     display: inline-block;
+}
+.Product button:disabled{
+    cursor: not-allowed;
+    color: slategrey;
 }

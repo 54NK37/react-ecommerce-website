@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../../axios'
 import classes from './Profile.css'
-
+import authenticate from '../../HOC/Auth'
 const Profile = (props) => {
 
     const [profileForm, setProfileForm] = useState({
@@ -62,4 +62,4 @@ const Profile = (props) => {
     )
 
 }
-export default Profile
+export default authenticate(Profile)

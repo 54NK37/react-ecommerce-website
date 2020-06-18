@@ -11,7 +11,8 @@ class Cart extends Component {
 
 
         this.state = {
-            cart: []
+            cart: [],
+            products:[]
         }
 
 
@@ -55,6 +56,14 @@ class Cart extends Component {
 
     componentDidMount() {
         console.log("cdm")
+        axios.get('/products')
+        .then(res => {
+            console.log(res.data)
+           this.setState({products : res.data})
+        })
+        .catch(err => {
+            console.log(err)
+        })
 
         if (Object.keys(this.props.sharedCart).length === 0 && this.props.purchasing === false && localStorage.getItem('token') !== null) {
             this.fetchPreviosCart()
@@ -97,8 +106,37 @@ class Cart extends Component {
         let cartItem = null
         let totalPrice = 0
         let quantity = 0
+        let url=null
+       
         if (this.state.cart !== [])
             cartItem = this.state.cart.map((element) => {
+
+                switch (element.product) {
+                    case ('Onion'):
+                            url="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR_2LEFtLLZk2dw_OZTqH0DbBA5Hl7aMNKBdSNt8K8nQQLPb5DT&usqp=CAU"
+                            break;
+                    case ('Cucumber'):
+                        url="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhyec_lAmSgLWFJKDJ6htweBjB65o4-t3qL5KOPfGK_TVYHd7z&usqp=CAU"
+                            break;
+        
+                    case ('Apple'):
+                        url= "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIe58vMWmpiby-bzJpKJNd4-cYCo9qrpaXgzEJqqkRQjPTBA9q&usqp=CAU"
+
+                            break;
+                    case ('Banana'):
+                        url= "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ-aAHYx1HkmyPo7cxIkZXphtZU09r8ZReE5ZAeZy2uLc48iWWU&usqp=CAU"
+                            break;
+        
+                    case ('Oats'):
+                        url="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT6jd9Ed9SdGrtWXW1ilZoI-NUg_sViMG9k9BQKNWk3oLNma5cb&usqp=CAU"
+                            break;
+                    case ('Bread'):
+                        url="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRPDIbEnS9HL4rps2Gs9JWg6niBl4Ei97mtxfil6U9fbMHPeRh-&usqp=CAU"
+                            break;
+        
+                    default:
+            }
+
                 if (this.props.purchasing) {
                     quantity = this.props.sharedCart[element.product]
                     if (quantity === undefined) {
@@ -111,7 +149,6 @@ class Cart extends Component {
 
                 let price = element.price
                 totalPrice += (quantity * price)
-
                 return <CartItem product={element.product}
                     quantity={quantity}
                     price={price}
@@ -120,6 +157,7 @@ class Cart extends Component {
                     remove={this.props.onRemoveProduct}
                     cart={this.props.sharedCart}
                     purchasing={this.props.purchasing}
+                    url={url}
                 />
 
 
@@ -135,7 +173,7 @@ class Cart extends Component {
 
                 {cartItem}
                 <p className={classes.Total}>Total Price : {totalPrice}</p>
-                <button className={classes.Submit} onClick={() => this.checkoutHandler()}>Checkout</button>
+                <button className={classes.Submit} onClick={() => this.checkoutHandler()} disabled={totalPrice === 0 ? true : false }>Checkout</button>
             </div >
 
 

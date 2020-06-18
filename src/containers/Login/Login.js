@@ -6,7 +6,12 @@ import classes from './Login.css'
 import * as cartActions from '../../store/actions/cart'
 
 class Login extends Component {
-    
+    constructor(props) {
+        super(props)
+        this.state = {
+            error:null
+        }
+    }
 
     onSubmitHandler = (event) => {
         event.preventDefault()
@@ -26,10 +31,11 @@ class Login extends Component {
                 this.setState({})
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err.response.data)
+                this.setState({error :err.response.data })
             })
 
-            this.props.onChangeRedirect()
+        this.props.onChangeRedirect()
 
     }
 
@@ -42,7 +48,7 @@ class Login extends Component {
                 <form id='form'>
                     <div>
                         <label>Username</label>
-                        <input id='un' type={"text"} placeholder='Username'/>
+                        <input id='un' type={"text"} placeholder='Username' />
                     </div>
 
                     <div>
@@ -50,7 +56,7 @@ class Login extends Component {
                         <input id='password' placeholder='Password' type={"password"} />
                     </div>
                     <button type={'submit'} onClick={(event) => this.onSubmitHandler(event)}>Submit</button>
-
+                    {this.state.error ? <h3 style={{'color' : 'red','fontWeight':'bold','marginTop':'10px'}}>{this.state.error}</h3> : null}
                 </form>
             </div>
         )
@@ -58,16 +64,16 @@ class Login extends Component {
 
 }
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
     return {
 
-        redirect : state.redirect
+        redirect: state.redirect
     }
 }
 
-const mapDispatchToProps = dispatch =>{
+const mapDispatchToProps = dispatch => {
     return {
-        onChangeRedirect : ()=>dispatch(cartActions.changeRedirect())
+        onChangeRedirect: () => dispatch(cartActions.changeRedirect())
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

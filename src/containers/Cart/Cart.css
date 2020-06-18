@@ -35,5 +35,10 @@ margin-top: 20px;
 color: royalblue;
 font-weight: bolder;
 margin: 10px;
+}
 
+.Cart .Submit:disabled{
+    background-color: #ccc;
+    color: black;
+    cursor: not-allowed;
 }

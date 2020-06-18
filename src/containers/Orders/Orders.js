@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Order from '../../components/Order/Order'
 import axios from '../../axios'
-import {withRouter} from 'react-router-dom'
 import classes from './Orders.css'
+import authenticate from '../../HOC/Auth'
+
 class Orders extends Component {
     constructor(props) {
     super(props)
@@ -71,4 +72,4 @@ class Orders extends Component {
     }
 }
 
-export default withRouter(Orders)
+export default authenticate(Orders)

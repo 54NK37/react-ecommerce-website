@@ -27,21 +27,27 @@ const order = (props) => {
         case ('Processing'):
             status = <span style={{ 'color': 'red', 'fontWeight': 'bold' }}>Processing</span>
             break;
-        
-            default:
+
+        default:
     }
     return (
         <div className={classes.Order}>
 
             <table>
-                <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
 
-                {finalCart}
+                <tbody>
+
+                    {finalCart}
+                </tbody>
+
             </table>
             <p className={classes.Total}>Total Price : {props.totalPrice}</p>
             <p><strong>Order Date :</strong>{props.orderDate}</p>

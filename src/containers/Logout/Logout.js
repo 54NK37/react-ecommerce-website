@@ -3,41 +3,38 @@ import axios from '../../axios'
 import { connect } from 'react-redux'
 import * as cartActions from '../../store/actions/cart'
 import classes from './Logout.css'
-
-
 class Logout extends Component {
-    constructor(props)
-    {
+    constructor(props) {
         super(props)
-        this.state={
-            cart : []
+        this.state = {
+            cart: []
         }
     }
 
     componentDidMount() {
-        if(this.props.purchasing){
+        if (this.props.purchasing) {
             let cart = []
             let keys = Object.keys(this.props.sharedCart)
-             keys.forEach((element, index) => {
+            keys.forEach((element, index) => {
                 if (element.endsWith("Price")) {
-                    return 
+                    return
                 }
                 let quantity = this.props.sharedCart[element]
                 let price = this.props.sharedCart[keys[index + 1]]
                 cart.push({
-                    product : element,
-                    quantity : quantity,
-                    price : price
-                })            
+                    product: element,
+                    quantity: quantity,
+                    price: price
+                })
             })
-    
-            this.setState({cart : cart})
-        }   
+
+            this.setState({ cart: cart })
+        }
     }
-    
+
     yesHandler = () => {
         let token = localStorage.getItem('token')
-        axios.post('/users/logoutAll',this.state.cart, {
+        axios.post('/users/logoutAll', this.state.cart, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -66,7 +63,7 @@ class Logout extends Component {
             console.log(res.data)
             localStorage.removeItem('token')
             this.props.onResetCart()
-         this.props.history.push('/products')
+            this.props.history.push('/products')
 
         })
             .catch(err => {
@@ -74,7 +71,7 @@ class Logout extends Component {
             });
     }
 
-    cancelHandler = ()=>{
+    cancelHandler = () => {
         this.props.history.push('/products')
     }
     render() {
@@ -82,9 +79,9 @@ class Logout extends Component {
             <div className={classes.Logout}>
                 <h3>Logging you out from this device</h3>
                 <p>Do you also want to logout from all devices ?</p>
-                <button style={{'backgroundColor' : 'seagreen'}} onClick={this.yesHandler}>Yes</button>
-                <button style={{'backgroundColor' : 'tomato'}} onClick={this.noHandler}>No</button>
-                <button style={{'backgroundColor' : 'yellowgreen'}} onClick={this.cancelHandler}>Cancel Logout</button>
+                <button style={{ 'backgroundColor': 'seagreen' }} onClick={this.yesHandler}>Yes</button>
+                <button style={{ 'backgroundColor': 'tomato' }} onClick={this.noHandler}>No</button>
+                <button style={{ 'backgroundColor': 'yellowgreen' }} onClick={this.cancelHandler}>Cancel Logout</button>
             </div>
         )
     }
@@ -92,17 +89,17 @@ class Logout extends Component {
 
 
 }
-const mapStateToProps = (state)=>{
-return {
-    sharedCart : state.cart,
-    purchasing : state.purchasing
-}
-}
-
-const mapDispatchToProps = dispatch =>{
+const mapStateToProps = (state) => {
     return {
-        onResetCart  : ()=>dispatch(cartActions.resetCart())
+        sharedCart: state.cart,
+        purchasing: state.purchasing
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Logout)
+const mapDispatchToProps = dispatch => {
+    return {
+        onResetCart: () => dispatch(cartActions.resetCart())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Logout)

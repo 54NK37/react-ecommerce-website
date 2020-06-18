@@ -44,6 +44,7 @@ class Products extends Component {
 
     render() {
         let product = this.state.products.map((element, index) => {
+                
             return <Product name={element.name}
                 category = {element.category}
                 price={element.price}
@@ -52,6 +53,7 @@ class Products extends Component {
                 add ={this.props.onAddProduct}
                 remove ={this.props.onRemoveProduct}
                 cart={this.props.cart}
+                url={element.url}
             />
         })
 
