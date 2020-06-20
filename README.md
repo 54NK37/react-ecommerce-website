@@ -5,7 +5,7 @@
 3)Edit baseURL inside "./src/axios.js" file and replace with your server URL.You may refer my another repository "node-ecommerce-website" and there postman app is not needed anymore (Website will make request to server instead of postman ).
 
 3)On one terminal start node server with "npm run dev" which will run on 
-  "http:/localhost:3000"."node-ecommerce-website" repository in my case (Make sure your terminal path is set to that repository).
+  "http:/localhost:3000"."node-ecommerce-website" repository in my case (Make sure your terminal path is set to this server repository).
 
 4)On second terminal start mongo server with "mongod --dbpath "[db path]" ".
 
