@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './Product.css'
+import {PropTypes} from 'prop-types'
 
 const  product =(props)=> {
                 let buttons =null;
@@ -22,5 +23,11 @@ const  product =(props)=> {
         }
 
 
+product.propTypes = {
+        url : PropTypes.string,
+        name : PropTypes.string,
+        price : PropTypes.number,
+        availableStatus :PropTypes.string
+}
 
 export default product

@@ -3,6 +3,9 @@ import axios from '../../axios'
 import { connect } from 'react-redux'
 import * as cartActions from '../../store/actions/cart'
 import classes from './Logout.css'
+import authenticate from '../../HOC/Auth'
+import { PropTypes } from 'prop-types'
+
 class Logout extends Component {
     constructor(props) {
         super(props)
@@ -28,12 +31,15 @@ class Logout extends Component {
                 })
             })
 
+            // store current unordered cart in state
             this.setState({ cart: cart })
         }
     }
 
     yesHandler = () => {
         let token = localStorage.getItem('token')
+        // store current unordered cart from state to cart in DB,which will be used as previous unorderd cart
+        //destroy all tokens from db,ie logout from all devices
         axios.post('/users/logoutAll', this.state.cart, {
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -54,6 +60,8 @@ class Logout extends Component {
 
     noHandler = () => {
         let token = localStorage.getItem('token')
+        // store current unordered cart from state to cart in DB,which will be used as previous unorderd cart
+        //destroy specific tokens from db,ie logout from this device
         axios.post('/users/logout', this.state.cart, {
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -102,4 +110,9 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Logout)
+Logout.propTypes = {
+    purchasing: PropTypes.bool
+}
+
+// make "/orders" route protected with authenticate HOC
+export default connect(mapStateToProps, mapDispatchToProps)(authenticate (Logout))

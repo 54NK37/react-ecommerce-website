@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from '../../axios'
 import classes from './Profile.css'
 import authenticate from '../../HOC/Auth'
+
 const Profile = (props) => {
 
     const [profileForm, setProfileForm] = useState({
@@ -22,6 +23,7 @@ const Profile = (props) => {
 
     useEffect(() => {
         let token = localStorage.getItem('token')
+        // get user profile from server if logged in
         axios.get('/users/me', {
             headers: {
                 'Authorization': `Bearer ${token}`

@@ -1,10 +1,11 @@
 import React from 'react'
 import classes from './Order.css'
 import { withRouter } from 'react-router-dom'
+import {PropTypes} from 'prop-types'
 
 const order = (props) => {
 
-    console.log(props.cart)
+    // console.log(props.cart)
     const finalCart = props.cart.map((element, index) => {
         return <tr key={props.cart[index]._id}>
             <td>{props.cart[index].product}</td>
@@ -57,6 +58,13 @@ const order = (props) => {
 
         </div>
     );
+}
+
+order.propTypes = {
+    totalPrice : PropTypes.number,
+    orderDate : PropTypes.string,
+    status : PropTypes.string,
+    deliveryDate : PropTypes.string
 }
 
 export default withRouter(order)

@@ -21,6 +21,7 @@ class Orders extends Component {
         console.log("cwm")
 
             let token = localStorage.getItem('token')
+            // get previous orders from db
             axios.get('/users/me/orders', {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -72,4 +73,5 @@ class Orders extends Component {
     }
 }
 
+// make "/orders" route protected with authenticate HOC
 export default authenticate(Orders)

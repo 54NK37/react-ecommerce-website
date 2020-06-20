@@ -57,7 +57,7 @@
 .Header a:active,
 .Header a.active{
     background-color: sandybrown;
-    color: blueviolet;
+    color: darkslateblue;
     border-bottom: 2px solid darkred;
     border-radius: 8px;
 }

@@ -7,37 +7,34 @@ const header = (props) => {
         <div className={classes.Header}>
             <header >
 
-                        <div className={classes.Title}>
-                        <img src={require('../../../assets/images/cart.jpg')} alt='cart' /><h3>Bigcart</h3>
+                <div className={classes.Title}>
+                    <img src={require('../../../assets/images/cart.jpg')} alt='cart' /><h3>Bigcart</h3>
                 </div><nav className={classes.Nav} >
                     <ul className={classes.Ul}>
+                        {/* show these routes if logged in */}
                         {localStorage.getItem('token') !== null ? <div>
-                            <li className={classes.Li}><NavLink to='/products' >Products</NavLink></li>
-                            <li className={classes.Li}><NavLink to='/cart'>Cart</NavLink></li>
-                            <li className={classes.Li}><NavLink to='/orders'>Orders</NavLink></li>
-                            <li className={classes.Li}><NavLink to='/profile'>Profile</NavLink></li>
-                            <li className={classes.Li}><NavLink to='/logout'>Logout</NavLink></li></div> : null}
+                            <li className={classes.Li}><NavLink to='/products'  activeClassName={classes.active} >Products</NavLink></li>
+                            <li className={classes.Li}><NavLink to='/cart' exact activeClassName={classes.active}>Cart</NavLink></li>
+                            <li className={classes.Li}><NavLink to='/orders' exact activeClassName={classes.active}>Orders</NavLink></li>
+                            <li className={classes.Li}><NavLink to='/profile' exact activeClassName={classes.active}>Profile</NavLink></li>
+                            <li className={classes.Li}><NavLink to='/logout' exact activeClassName={classes.active}>Logout</NavLink></li></div> : null}
 
+                        {/* show these routes if not logged in */}
                         {localStorage.getItem('token') === null ? <div>
-                            <li className={classes.Li}><NavLink to='/products' >Products</NavLink></li>
-                            <li className={classes.Li}><NavLink to='/cart'>Cart</NavLink></li>
-                            <li className={classes.Li}><NavLink to='/login'>Login</NavLink></li>
-                            <li className={classes.Li}><NavLink to='/signup'>Signup</NavLink></li></div> : null}
+                            <li className={classes.Li}><NavLink to='/products'  activeClassName={classes.active} >Products</NavLink></li>
+                            <li className={classes.Li}><NavLink to='/cart' exact activeClassName={classes.active}>Cart</NavLink></li>
+                            <li className={classes.Li}><NavLink to='/login' exact activeClassName={classes.active}>Login</NavLink></li>
+                            <li className={classes.Li}><NavLink to='/signup' exact activeClassName={classes.active}>Signup</NavLink></li></div> : null}
 
 
 
                     </ul>
-
-                    {/* <button >Sort By</button>
-                <ul >
-                    <li>Price : Low to High</li>
-                    <li>Price : High to Low</li>
-                </ul> */}
                 </nav>
             </header>
         </div>
     );
 }
+
 
 
 export default header

@@ -2,15 +2,15 @@ const initialState = {
     cart: {},
     purchasing: false,
     redirect: localStorage.getItem('token') !== null ? '/checkout' : '/login',
-    dbCart : []
+    dbCart: []
 
 }
 
 const reducer = (state = initialState, action) => {
     const cart = state.cart
     switch (action.type) {
+        // add product to cart and update total price.Set purchasing true
         case ('ADD_PRODUCT'):
-
             if (state.cart[action.productName] === undefined) {
                 cart[action.productName] = 1
                 cart[action.productName + "Price"] = action.price
@@ -30,7 +30,7 @@ const reducer = (state = initialState, action) => {
                 }
             }
 
-
+        // remove product to cart and update total price.
         case ('REMOVE_PRODUCT'):
             if (state.cart[action.productName] === undefined || state.cart[action.productName] === 0) {
 
@@ -55,6 +55,9 @@ const reducer = (state = initialState, action) => {
                 }
             }
 
+        // redirect path on cart page to proceed
+        //if not logged in then redirect to /login
+        //if logged in then redirect to /checkout
         case ('CHANGE_REDIRECT'):
             return {
                 ...state,
@@ -64,23 +67,25 @@ const reducer = (state = initialState, action) => {
 
             }
 
-        case('UPDATE_DBCART'):
-        return {
-            ...state,
+        //current cart is select by user
+        //but if no current cart (purchasing from state =false),I am loading previous unordered cart from db
+        case ('UPDATE_DBCART'):
+            return {
+                ...state,
                 cart: { ...cart },
                 purchasing: Object.keys(state.cart).length === 0 ? false : true,
                 redirect: localStorage.getItem('token') !== null ? '/checkout' : '/login',
-                dbCart : action.cart
+                dbCart: action.cart
 
-        }
+            }
 
-        case('RESET_CART'):
-        return {
-            cart : {},
-            purchasing : false,
-            redirect: localStorage.getItem('token') !== null ? '/checkout' : '/login',
-            dbCart : []
-        }
+        case ('RESET_CART'):
+            return {
+                cart: {},
+                purchasing: false,
+                redirect: localStorage.getItem('token') !== null ? '/checkout' : '/login',
+                dbCart: []
+            }
 
         default: return state
 

@@ -4,6 +4,9 @@ import axios from '../../axios'
 import * as cartActions from '../../store/actions/cart'
 import classes from './Checkout.css'
 import authenticate from '../../HOC/Auth'
+import { PropTypes } from 'prop-types'
+
+
 class Checkout extends Component {
     cartt = []
     tp = 0
@@ -28,6 +31,7 @@ class Checkout extends Component {
         // this.setState({order : orders})
         console.log(orders)
 
+        // update orders in db
         axios.post('/users/me/placeorder', orders, {
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -52,6 +56,7 @@ class Checkout extends Component {
         let totalPrice = 0
         let cart = null
 
+        // current ongoing cart
         if (this.props.purchasing === true) {
             let keys = Object.keys(this.props.cart)
             cart = keys.map((element, index) => {
@@ -79,6 +84,7 @@ class Checkout extends Component {
             })
         }
         else {
+            // previous unordered cart from db
             cart = this.props.dbCart.map((element, index) => {
                 let quantity = element.quantity
                 let price = element.price
@@ -102,6 +108,7 @@ class Checkout extends Component {
 
         return (
             <div className={classes.Checkout}>
+                <h1>Checkout Page</h1>
                 <h3>Summary</h3>
                 <table>
                     <thead>
@@ -147,4 +154,8 @@ const mapDispatchToProps = dispatch => {
         onResetCart: () => dispatch(cartActions.resetCart())
     }
 }
-export default authenticate(connect(mapStateToProps, mapDispatchToProps)(Checkout))
+
+Checkout.propTypes = {
+    purchasing: PropTypes.bool
+}
+export default connect(mapStateToProps, mapDispatchToProps)(authenticate(Checkout))

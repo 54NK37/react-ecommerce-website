@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Product from '../../components/Product/Product'
 import Sidebar from '../../components/Layout/Sidebar/Sidebar'
-
 import classes from './Products.css'
 import axios from '../../axios'
 import {connect} from 'react-redux'
@@ -17,6 +16,8 @@ class Products extends Component {
     }
 
     loadData() {
+        // load products based on current path
+        // as current path may specify category
         axios.get(this.props.location.pathname)
             .then(res => {
                 console.log(res.data)

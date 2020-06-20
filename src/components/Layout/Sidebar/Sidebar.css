@@ -27,10 +27,12 @@
 text-align: right;
 }
 
-a:hover,
-a:active{
+.Sidebar a:hover,
+.Sidebar a:active,
+.Sidebar a.active{
     background-color : aquamarine;
     border-radius: 5px;
+    color: darkred;
 }
 
 * {

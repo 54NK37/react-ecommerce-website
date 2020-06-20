@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 import classes from './Login.css'
 import * as cartActions from '../../store/actions/cart'
+import { PropTypes } from 'prop-types'
+
 
 class Login extends Component {
     constructor(props) {
@@ -24,6 +26,7 @@ class Login extends Component {
         form.userName = document.getElementById('un').value
         form.password = document.getElementById('password').value
 
+        // login with details and get token from server.Store token in loacalStorage
         axios.post('/users/login', form)
             .then(res => {
                 console.log(res.data)
@@ -76,4 +79,9 @@ const mapDispatchToProps = dispatch => {
         onChangeRedirect: () => dispatch(cartActions.changeRedirect())
     }
 }
+
+Login.propTypes = {
+    redirect: PropTypes.string
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

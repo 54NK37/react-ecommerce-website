@@ -38,6 +38,8 @@ const Signup = props => {
         form.address.pin = parseInt(document.getElementById('pin').value)
     
         console.log(form)
+        // signup new user and store in db
+        // user is logged in as well along with it
         axios.post('/users/signup', form)
             .then(res => {
                 console.log(res.data)
